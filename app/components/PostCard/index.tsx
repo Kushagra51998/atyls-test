@@ -103,7 +103,7 @@ const PostCard = ({ description, emoji, image, name, time }: TPostCard) => {
       {/* Modal opens if the user in not logged in */}
       <CustomModal
         isOpen={isModalOpen}
-        children={
+        content={
           isLogin ? (
             <LoginCard setIsLogin={setIsLogin} />
           ) : (

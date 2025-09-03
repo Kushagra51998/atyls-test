@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 type ModalProps = {
   isOpen: boolean;
-  children: ReactNode;
+  content: ReactNode;
 };
 
 // Custom modal for all modal related stuff
 
-export default function Modal({ isOpen, children }: ModalProps) {
+export default function Modal({ isOpen, content }: ModalProps) {
   useEffect(() => {
     if (isOpen) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "auto";
@@ -36,7 +36,7 @@ export default function Modal({ isOpen, children }: ModalProps) {
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {children}
+            {content}
           </motion.div>
         </motion.div>
       )}

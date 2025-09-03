@@ -246,7 +246,7 @@ const FeedEditor = () => {
       {/* Modal opens if the user is not logged in  */}
       <CustomModal
         isOpen={isModalOpen}
-        children={
+        content={
           isLogin ? (
             <LoginCard setIsLogin={setIsLogin} />
           ) : (
