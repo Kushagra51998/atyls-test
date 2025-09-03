@@ -19,8 +19,22 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+.MainContainer{
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 24px;
+}
+
+.mainCard{
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 12px;
+}
+
+
+.customShadow{
+ border: 1px solid #e1e1e1;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
