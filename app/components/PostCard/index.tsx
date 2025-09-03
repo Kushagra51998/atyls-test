@@ -1,22 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import CommentIcon from "../icons/comment";
 import HeartIcon from "../icons/heart";
 import ShareIcon from "../icons/share";
 import { useEffect, useState } from "react";
 import { useToast } from "../customToast";
-import CustomModal from "../customModal/index";
+// import CustomModal from "../customModal/index";
 import LoginCard from "../LoginCard/index";
-import { useAppContext } from "@/app/layout";
+import dynamic from "next/dynamic";
+
+const CustomModal = dynamic(() => import("../customModal"), { ssr: false });
+
 import SignupCard from "../signupCard";
 import { motion } from "framer-motion";
-
-export type TPostCard = {
-  name: string;
-  description: string;
-  image: string;
-  emoji: string;
-  time: string;
-};
+import { useAppContext } from "@/app/context/app";
+import { TPostCard } from "@/app/types";
 
 // Main component to render the post card
 const PostCard = ({ description, emoji, image, name, time }: TPostCard) => {

@@ -14,13 +14,16 @@ import QuoteIcon from "../icons/quote";
 import SendIcon from "../icons/send";
 import UnderlineIcon from "../icons/underline";
 import VideoIcon from "../icons/video";
-import CustomModal from "../customModal/index";
+import dynamic from "next/dynamic";
+
+const CustomModal = dynamic(() => import("../customModal"), { ssr: false });
 import LoginCard from "../LoginCard/index";
 import { useEffect, useState } from "react";
-import { TPostCard } from "../PostCard";
-import { useAppContext } from "@/app/layout";
+import type { TPostCard } from "@/app/types/index";
+
 import SignupCard from "../signupCard";
 import { motion } from "framer-motion";
+import { useAppContext } from "@/app/context/app";
 
 const FeedEditor = () => {
   const { showToast } = useToast();
@@ -47,7 +50,7 @@ const FeedEditor = () => {
     if (status !== "Loggedin") {
       setModalOpen(true);
     } else {
-      showToast("Function not implemented");
+      // showToast("Function not implemented");
     }
   };
 
@@ -55,10 +58,10 @@ const FeedEditor = () => {
   const saveToDb = () => {
     if (userPost.description) {
       if (posts?.length) {
-        localStorage.setItem("posts", JSON.stringify([userPost, ...posts]));
+        // localStorage.setItem("posts", JSON.stringify([userPost, ...posts]));
         setPosts([userPost, ...posts]);
       } else {
-        localStorage.setItem("posts", JSON.stringify([userPost]));
+        // localStorage.setItem("posts", JSON.stringify([userPost]));
         setPosts([userPost]);
       }
       setUserPost({

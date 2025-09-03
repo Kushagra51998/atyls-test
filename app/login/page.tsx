@@ -1,6 +1,7 @@
 "use client";
 import LoginCard from "../components/LoginCard";
 
+// Login Page
 const Login = () => {
   return (
     <div className="mt-20">

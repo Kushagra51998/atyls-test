@@ -5,7 +5,7 @@ import LoginIcon from "../icons/login";
 import { TuserCreds, validUsers } from "../../helper/validCred";
 import { useToast } from "../customToast";
 import { useRouter } from "next/navigation";
-import { useAppContext } from "@/app/layout";
+import { useAppContext } from "@/app/context/app";
 
 type TloginCard = {
   setIsLogin?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -35,9 +35,9 @@ const LoginCard = ({ setIsLogin }: TloginCard) => {
     ) {
       showToast("User Found");
       router.push("/");
-      localStorage.setItem("status", "Loggedin");
+      // localStorage.setItem("status", "Loggedin");
       setStatus("Loggedin");
-      localStorage.setItem("userName", userCreds.userName.split("@")[0]);
+      // localStorage.setItem("userName", userCreds.userName.split("@")[0]);
       setUserName(userCreds.userName.split("@")[0]);
     } else showToast("Invalid Creds");
   };

@@ -1,7 +1,10 @@
 "use client";
+export const dynamic = "force-dynamic";
+
 import FeedEditor from "./components/FeedEditor";
-import PostCard, { TPostCard } from "./components/PostCard";
-import { useAppContext } from "./layout";
+import PostCard from "./components/PostCard";
+import { useAppContext } from "./context/app";
+import type { TPostCard } from "./types";
 
 const FeedProvider = () => {
   const { posts } = useAppContext();
@@ -12,10 +15,10 @@ const FeedProvider = () => {
       <FeedEditor />
       <div className="mt-6">
         {/* Mapping all the post */}
+
         {posts &&
           posts.map((itm: TPostCard, idx: number) => (
             <div className="my-4" key={idx}>
-              {/* UI component for posts */}
               <PostCard
                 description={itm.description}
                 emoji={itm.emoji}
