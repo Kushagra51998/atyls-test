@@ -50,7 +50,7 @@ const FeedEditor = () => {
     if (status !== "Loggedin") {
       setModalOpen(true);
     } else {
-      // showToast("Function not implemented");
+      showToast("Function not implemented");
     }
   };
 
